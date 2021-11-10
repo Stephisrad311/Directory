@@ -1,0 +1,19 @@
+import os
+_dir = input('Enter the directory name: ')
+_file = input('Enter file name: ')
+
+name = input('Enter user name: ')
+address = input('Enter address: ')
+number = input('Enter phone: ')
+
+data = name + ',' + address + ',' + number
+filepath = os.path.join(_dir, _file)
+isPath = os.path.isdir(_dir)
+
+if not isPath:
+    os.makedirs(_dir)
+with open(filepath, 'w') as file:
+    file.write(data)
+with open(filepath, 'r') as file:
+    readData = file.read()
+print(readData)
